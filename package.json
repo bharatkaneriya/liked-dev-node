@@ -1,0 +1,23 @@
+{
+	"name": "devtinder-backend",
+	"version": "1.0.0",
+	"description": "dev tinder backend",
+	"homepage": "https://github.com/bharatkaneriya/dev-tinder-node#readme",
+	"bugs": {
+		"url": "https://github.com/bharatkaneriya/dev-tinder-node/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bharatkaneriya/dev-tinder-node.git"
+	},
+	"license": "ISC",
+	"author": "Bharat K",
+	"type": "commonjs",
+	"main": "app.js",
+	"scripts": {
+		"dev":"nodemon src/app.js"
+	},
+	"dependencies": {
+		"express": "^5.2.1"
+	}
+}
