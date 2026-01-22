@@ -1,15 +1,20 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Dashbaord!')
+const { userAuth,adminAuth } = require('./middlewares/auth.middleware');
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log("METHOD:", req.method);
+  console.log("HEADERS:", req.headers["content-type"]);
+  console.log("BODY:", req.body);
+  next();
 });
 
-app.get('/hello', (req, res) => {
-    res.send('Hello World!')
-});
+// import routes
+const authRouter = require('./routes/auth.route');
+app.use("/v1",authRouter);
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+module.exports = app;
